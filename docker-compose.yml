@@ -1,18 +1,18 @@
 services:
   postgres:
     image: postgres:16-alpine
-    container_name: wizybot-postgres
+    container_name: personal-ai-assistant-postgres
     restart: unless-stopped
     environment:
-      POSTGRES_USER: ${POSTGRES_USER:-wizybot}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-wizybot_secret}
-      POSTGRES_DB: ${POSTGRES_DB:-wizybot_db}
+      POSTGRES_USER: ${POSTGRES_USER:-personal-ai-assistant}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-personal-ai-assistant_secret}
+      POSTGRES_DB: ${POSTGRES_DB:-personal-ai-assistant_db}
     ports:
       - "${POSTGRES_PORT:-5432}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-wizybot} -d ${POSTGRES_DB:-wizybot_db}"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-personal-ai-assistant} -d ${POSTGRES_DB:-personal-ai-assistant_db}"]
       interval: 5s
       timeout: 5s
       retries: 5
@@ -22,7 +22,7 @@ services:
       context: .
       dockerfile: Dockerfile
       target: production
-    container_name: wizybot-nest
+    container_name: personal-ai-assistant-nest
     restart: unless-stopped
     env_file:
       - .env
@@ -33,9 +33,9 @@ services:
       PORT: 3000
       POSTGRES_HOST: postgres
       POSTGRES_PORT: 5432
-      POSTGRES_USER: ${POSTGRES_USER:-wizybot}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-wizybot_secret}
-      POSTGRES_DB: ${POSTGRES_DB:-wizybot_db}
+      POSTGRES_USER: ${POSTGRES_USER:-personal-ai-assistant}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-personal-ai-assistant_secret}
+      POSTGRES_DB: ${POSTGRES_DB:-personal-ai-assistant_db}
       OPENAI_API_KEY: ${OPENAI_API_KEY}
       OPEN_EXCHANGE_RATES_API_KEY: ${OPEN_EXCHANGE_RATES_API_KEY}
     depends_on:

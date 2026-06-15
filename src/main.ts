@@ -7,7 +7,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors({
-    origin: 'https://wizybot-react.onrender.com',
+    origin: 'https://personal-ai-assistant-react.onrender.com',
     credentials: true,
   });
 
@@ -22,9 +22,9 @@ async function bootstrap() {
 
   // Swagger documentation configuration
   const config = new DocumentBuilder()
-    .setTitle('Wizybot Chatbot API')
+    .setTitle('personal-ai-assistant Chatbot API')
     .setDescription(
-      'API for the Wizybot chatbot that can search products and convert currencies using OpenAI Function Calling',
+      'API for the personal-ai-assistant chatbot that can search products and convert currencies using OpenAI Function Calling',
     )
     .setVersion('1.0')
     .addTag('chatbot', 'Chatbot endpoints for user queries')

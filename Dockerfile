@@ -1,5 +1,5 @@
 # =============================================================================
-# Wizybot NestJS - Docker Multi-Stage Build
+# personal-ai-assistant NestJS - Docker Multi-Stage Build
 # =============================================================================
 #
 # This Dockerfile has two stages:
@@ -12,12 +12,12 @@
 #   App only:        docker compose up app -d
 #
 # Build images manually (for lint, test, e2e):
-#   Development:     docker build -t wizybot-nest:dev --target development .
-#   Production:      docker build -t wizybot-nest:prod --target production .
+#   Development:     docker build -t personal-ai-assistant-nest:dev --target development .
+#   Production:      docker build -t personal-ai-assistant-nest:prod --target production .
 #
 # Run commands in dev image (after building):
-#   Lint:            docker run --rm wizybot-nest:dev npm run lint
-#   Unit tests:      docker run --rm wizybot-nest:dev npm run test
+#   Lint:            docker run --rm personal-ai-assistant-nest:dev npm run lint
+#   Unit tests:      docker run --rm personal-ai-assistant-nest:dev npm run test
 #   E2E tests:       See README "Running Tests with Docker" section
 # =============================================================================
 

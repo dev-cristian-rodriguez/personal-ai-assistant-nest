@@ -1,4 +1,4 @@
-# Wizybot Chatbot API
+# personal-ai-assistant Chatbot API
 
 A NestJS-based chatbot API that uses OpenAI's Chat Completion API with Function Calling to provide intelligent customer support. The chatbot can search for products in a catalog and convert currencies using real-time exchange rates.
 
@@ -31,7 +31,7 @@ Best for active development with hot-reload.
 #### Step 1: Clone the repository
 ```bash
 git clone <repository-url>
-cd wizybot-nest
+cd personal-ai-assistant-nest
 ```
 
 #### Step 2: Install dependencies
@@ -67,7 +67,7 @@ Best for production-like setup or when you prefer not to install Node.js locally
 #### Step 1: Clone the repository
 ```bash
 git clone <repository-url>
-cd wizybot-nest
+cd personal-ai-assistant-nest
 ```
 
 #### Step 2: Create environment file
@@ -228,25 +228,25 @@ Use the development Docker image when you want to run tests in a container (same
 
 **Step 1: Build the development image** (required once)
 ```bash
-docker build -t wizybot-nest:dev --target development .
+docker build -t personal-ai-assistant-nest:dev --target development .
 ```
 
 **Step 2: Run tests**
 ```bash
 # Lint
-docker run --rm wizybot-nest:dev npm run lint
+docker run --rm personal-ai-assistant-nest:dev npm run lint
 
 # Unit tests
-docker run --rm wizybot-nest:dev npm run test
+docker run --rm personal-ai-assistant-nest:dev npm run test
 
 # E2E tests (requires PostgreSQL running)
 docker compose up postgres -d
-docker run --rm --network wizybot-nest_default \
+docker run --rm --network personal-ai-assistant-nest_default \
   -e POSTGRES_HOST=postgres -e POSTGRES_PORT=5432 \
-  -e POSTGRES_USER=wizybot -e POSTGRES_PASSWORD=wizybot_secret -e POSTGRES_DB=wizybot_db \
-  wizybot-nest:dev npm run test:e2e
+  -e POSTGRES_USER=personal-ai-assistant -e POSTGRES_PASSWORD=personal-ai-assistant_secret -e POSTGRES_DB=personal-ai-assistant_db \
+  personal-ai-assistant-nest:dev npm run test:e2e
 ```
-> **Note:** If the network name differs, run `docker network ls` and use the network that matches your project folder name (e.g. `wizybot-nest_default`).
+> **Note:** If the network name differs, run `docker network ls` and use the network that matches your project folder name (e.g. `personal-ai-assistant-nest_default`).
 
 ### Building
 ```bash
